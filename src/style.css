@@ -177,6 +177,7 @@ button:active {
   background: rgba(0, 0, 0, 0.7);
   padding: 10px;
   border-radius: 8px;
+  z-index: 50;
 }
 
 #audio-controls button {
@@ -194,4 +195,101 @@ button:active {
   color: white;
   border: 2px solid #34495e;
   border-radius: 4px;
+}
+
+/* Touch Controls for Mobile */
+#touch-controls {
+  display: none;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  justify-content: space-between;
+  padding: 0 20px;
+  pointer-events: none;
+  z-index: 100;
+}
+
+#touch-controls .touch-btn {
+  pointer-events: all;
+  width: 70px;
+  height: 70px;
+  font-size: 2rem;
+  padding: 0;
+  margin: 0;
+  border-radius: 50%;
+  background: rgba(39, 174, 96, 0.7);
+  border: 3px solid rgba(30, 132, 73, 0.9);
+  box-shadow: 0 4px 0 rgba(30, 132, 73, 0.9);
+  color: white;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#touch-controls .touch-btn:active {
+  background: rgba(46, 204, 113, 0.9);
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 rgba(30, 132, 73, 0.9);
+}
+
+#btn-left,
+#btn-right {
+  position: relative;
+}
+
+#btn-jump {
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+}
+
+#btn-left {
+  float: left;
+}
+
+#btn-right {
+  float: left;
+  margin-left: 15px;
+}
+
+/* Show touch controls on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  #touch-controls {
+    display: flex;
+  }
+
+  .controls-info {
+    font-size: 0.9rem;
+  }
+
+  #game-container {
+    max-width: 100%;
+  }
+
+  #audio-controls {
+    bottom: 100px;
+  }
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 768px) {
+  #menu h1 {
+    font-size: 2.5rem;
+  }
+
+  button {
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+  }
+
+  #hud {
+    font-size: 0.9rem;
+  }
+
+  #editor-ui {
+    min-width: 200px;
+    padding: 15px;
+  }
 }

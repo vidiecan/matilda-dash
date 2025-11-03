@@ -262,6 +262,174 @@ button:active {
   }
 }
 
+/* Landscape mode optimizations for touch devices */
+@media (hover: none) and (pointer: coarse) and (max-height: 500px) {
+  #touch-controls {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+  }
+
+  #touch-controls .touch-btn {
+    width: 55px;
+    height: 55px;
+    font-size: 1.5rem;
+    border: 2px solid rgba(30, 132, 73, 0.9);
+    box-shadow: 0 3px 0 rgba(30, 132, 73, 0.9);
+  }
+
+  #touch-controls .touch-btn:active {
+    box-shadow: 0 1px 0 rgba(30, 132, 73, 0.9);
+  }
+
+  .touch-controls-left {
+    gap: 10px;
+  }
+
+  #audio-controls {
+    bottom: 75px;
+    padding: 5px 8px;
+    font-size: 0.9rem;
+  }
+
+  #audio-controls button {
+    font-size: 1.2rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  #audio-controls select {
+    font-size: 0.9rem;
+    padding: 0.3rem;
+  }
+
+  #hud {
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    padding: 5px;
+  }
+}
+
+/* Extra small landscape screens (height < 400px) */
+@media (hover: none) and (pointer: coarse) and (max-height: 400px) {
+  #touch-controls {
+    bottom: 5px;
+    left: 8px;
+    right: 8px;
+  }
+
+  #touch-controls .touch-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+    border: 2px solid rgba(30, 132, 73, 0.9);
+    box-shadow: 0 2px 0 rgba(30, 132, 73, 0.9);
+  }
+
+  .touch-controls-left {
+    gap: 8px;
+  }
+
+  #audio-controls {
+    bottom: 65px;
+    padding: 4px 6px;
+  }
+
+  #audio-controls button {
+    font-size: 1rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  #audio-controls select {
+    font-size: 0.85rem;
+    padding: 0.2rem;
+  }
+}
+
+/* Landscape optimizations applied when touch controls are shown (for any device/browser) */
+@media (max-height: 500px) {
+  #game #touch-controls {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+  }
+
+  #game #touch-controls .touch-btn {
+    width: 55px;
+    height: 55px;
+    font-size: 1.5rem;
+    border: 2px solid rgba(30, 132, 73, 0.9);
+    box-shadow: 0 3px 0 rgba(30, 132, 73, 0.9);
+  }
+
+  #game #touch-controls .touch-btn:active {
+    box-shadow: 0 1px 0 rgba(30, 132, 73, 0.9);
+  }
+
+  #game .touch-controls-left {
+    gap: 10px;
+  }
+
+  #game #audio-controls {
+    bottom: 75px;
+    padding: 5px 8px;
+    font-size: 0.9rem;
+  }
+
+  #game #audio-controls button {
+    font-size: 1.2rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  #game #audio-controls select {
+    font-size: 0.9rem;
+    padding: 0.3rem;
+  }
+
+  #game #hud {
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    padding: 5px;
+  }
+}
+
+/* Extra small screens (height < 400px) */
+@media (max-height: 400px) {
+  #game #touch-controls {
+    bottom: 5px !important;
+    left: 8px !important;
+    right: 8px !important;
+  }
+
+  #game #touch-controls .touch-btn {
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 1.3rem !important;
+    border: 2px solid rgba(30, 132, 73, 0.9) !important;
+    box-shadow: 0 2px 0 rgba(30, 132, 73, 0.9) !important;
+  }
+
+  #game .touch-controls-left {
+    gap: 8px !important;
+  }
+
+  #game #audio-controls {
+    bottom: 65px !important;
+    padding: 4px 6px !important;
+  }
+
+  #game #audio-controls button {
+    font-size: 1rem !important;
+    padding: 0.2rem 0.5rem !important;
+  }
+
+  #game #audio-controls select {
+    font-size: 0.85rem !important;
+    padding: 0.2rem !important;
+  }
+}
+
 /* Additional mobile optimizations */
 @media (max-width: 768px) {
   #menu h1 {

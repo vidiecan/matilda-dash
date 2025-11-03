@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matilda Dash - Minecraft Platformer</title>
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <div id="game-container">
+      <div id="menu" class="screen active">
+        <h1>Matilda Dash</h1>
+        <button id="btn-play">Play</button>
+        <button id="btn-editor">Map Editor</button>
+        <div class="controls-info">
+          <p>Controls: WASD or Arrow Keys to move, Space to jump</p>
+        </div>
+      </div>
+
+      <div id="game" class="screen">
+        <canvas id="game-canvas"></canvas>
+        <div id="hud">
+          <button id="btn-menu">Menu</button>
+          <div id="game-info">
+            <span id="level-name">Level 1</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="editor" class="screen">
+        <canvas id="editor-canvas"></canvas>
+        <div id="editor-ui">
+          <h3>Map Editor</h3>
+          <div class="editor-controls">
+            <label>Block Type:</label>
+            <select id="block-type">
+              <option value="grass">Grass</option>
+              <option value="dirt">Dirt</option>
+              <option value="stone">Stone</option>
+              <option value="erase">Erase</option>
+            </select>
+          </div>
+          <div class="editor-controls">
+            <button id="btn-save-map">Save Map</button>
+            <button id="btn-load-map">Load Map</button>
+            <button id="btn-clear-map">Clear</button>
+            <button id="btn-test-map">Test</button>
+          </div>
+          <div class="editor-controls">
+            <button id="btn-editor-menu">Back to Menu</button>
+          </div>
+          <div id="editor-help">
+            <p>Click to place blocks. Right-click to remove.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="audio-controls">
+        <button id="btn-music-toggle">🔊</button>
+        <select id="music-select">
+          <option value="none">No Music</option>
+          <option value="music1">Track 1</option>
+          <option value="music2">Track 2</option>
+        </select>
+      </div>
+    </div>
+
+    <script type="module" src="src/index.js"></script>
+  </body>
+</html>

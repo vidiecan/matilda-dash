@@ -1,0 +1,41 @@
+{
+  "name": "matilda-dash",
+  "version": "1.0.0",
+  "description": "Minecraft-style platformer game with Matilda the badger",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "scripts\\start.bat",
+    "test": "jest",
+    "lint": "eslint \"src/**/*.js\" \"tests/**/*.js\"",
+    "lint:fix": "eslint \"src/**/*.js\" \"tests/**/*.js\" --fix",
+    "format": "prettier --write \"src/**/*.{js,css,html}\"",
+    "prepare": "husky"
+  },
+  "keywords": [
+    "game",
+    "platformer",
+    "minecraft"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "husky": "^9.0.0",
+    "jest": "^29.0.0",
+    "jest-environment-jsdom": "^29.0.0",
+    "lint-staged": "^15.0.0",
+    "prettier": "^3.0.0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,html}": [
+      "prettier --write"
+    ]
+  }
+}

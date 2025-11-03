@@ -202,10 +202,10 @@ button:active {
   display: none;
   position: absolute;
   bottom: 20px;
-  left: 0;
-  right: 0;
+  left: 20px;
+  right: 20px;
   justify-content: space-between;
-  padding: 0 20px;
+  align-items: flex-end;
   pointer-events: none;
   z-index: 100;
 }
@@ -234,24 +234,13 @@ button:active {
   box-shadow: 0 2px 0 rgba(30, 132, 73, 0.9);
 }
 
-#btn-left,
-#btn-right {
-  position: relative;
+.touch-controls-left {
+  display: flex;
+  gap: 15px;
 }
 
 #btn-jump {
-  position: absolute;
-  right: 20px;
-  bottom: 0;
-}
-
-#btn-left {
-  float: left;
-}
-
-#btn-right {
-  float: left;
-  margin-left: 15px;
+  flex-shrink: 0;
 }
 
 /* Show touch controls on touch devices */

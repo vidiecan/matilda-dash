@@ -1,3 +1,5 @@
+Current release: https://vidiecan.github.io/matilda-dash/
+
 # Matilda Dash
 
 Minecraft-style platformer game featuring Matilda the badger.
@@ -10,7 +12,7 @@ Minecraft-style platformer game featuring Matilda the badger.
 scripts\start.bat
 ```
 
-Visit `http://localhost:8080`
+Visit `http://localhost:8081`
 
 ## Controls
 

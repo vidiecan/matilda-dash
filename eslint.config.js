@@ -37,6 +37,7 @@ export default [
         afterEach: 'readonly',
         jest: 'readonly',
         KeyboardEvent: 'readonly',
+        Event: 'readonly',
       },
     },
   },

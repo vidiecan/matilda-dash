@@ -57,6 +57,12 @@ class App {
       this.showScreen('menu');
     });
 
+    // Setup touch controls for the game
+    const leftBtn = document.getElementById('btn-left');
+    const rightBtn = document.getElementById('btn-right');
+    const jumpBtn = document.getElementById('btn-jump');
+    this.game.input.setupTouchControls(leftBtn, rightBtn, jumpBtn);
+
     // Editor buttons
     document.getElementById('block-type').addEventListener('change', (e) => {
       this.editor.setBlockType(e.target.value);

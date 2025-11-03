@@ -2,7 +2,10 @@
 <html lang="sk">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>Matilda Dash - Minecraft Platformer</title>
     <link rel="stylesheet" href="src/style.css" />
   </head>
@@ -14,6 +17,7 @@
         <button id="btn-editor">Map Editor</button>
         <div class="controls-info">
           <p>Controls: WASD or Arrow Keys to move, Space to jump</p>
+          <p style="font-size: 0.9em; margin-top: 0.5rem">On mobile: Use on-screen touch buttons</p>
         </div>
       </div>
 
@@ -24,6 +28,13 @@
           <div id="game-info">
             <span id="level-name">Level 1</span>
           </div>
+        </div>
+        <div id="touch-controls">
+          <div class="touch-controls-left">
+            <button id="btn-left" class="touch-btn">◄</button>
+            <button id="btn-right" class="touch-btn">►</button>
+          </div>
+          <button id="btn-jump" class="touch-btn">▲</button>
         </div>
       </div>
 

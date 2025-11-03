@@ -65,4 +65,64 @@ describe('InputHandler', () => {
     window.dispatchEvent(event);
     expect(input.isLeft()).toBe(false);
   });
+
+  describe('Touch Controls', () => {
+    let leftBtn, rightBtn, jumpBtn;
+
+    beforeEach(() => {
+      // Create mock buttons
+      leftBtn = document.createElement('button');
+      rightBtn = document.createElement('button');
+      jumpBtn = document.createElement('button');
+
+      input.setupTouchControls(leftBtn, rightBtn, jumpBtn);
+    });
+
+    test('should detect left touch', () => {
+      const touchStart = new Event('touchstart');
+      leftBtn.dispatchEvent(touchStart);
+
+      expect(input.isLeft()).toBe(true);
+
+      const touchEnd = new Event('touchend');
+      leftBtn.dispatchEvent(touchEnd);
+
+      expect(input.isLeft()).toBe(false);
+    });
+
+    test('should detect right touch', () => {
+      const touchStart = new Event('touchstart');
+      rightBtn.dispatchEvent(touchStart);
+
+      expect(input.isRight()).toBe(true);
+
+      const touchEnd = new Event('touchend');
+      rightBtn.dispatchEvent(touchEnd);
+
+      expect(input.isRight()).toBe(false);
+    });
+
+    test('should detect jump touch', () => {
+      const touchStart = new Event('touchstart');
+      jumpBtn.dispatchEvent(touchStart);
+
+      expect(input.isJump()).toBe(true);
+
+      const touchEnd = new Event('touchend');
+      jumpBtn.dispatchEvent(touchEnd);
+
+      expect(input.isJump()).toBe(false);
+    });
+
+    test('should reset touch state', () => {
+      const touchStart = new Event('touchstart');
+      leftBtn.dispatchEvent(touchStart);
+
+      expect(input.isLeft()).toBe(true);
+
+      input.reset();
+
+      expect(input.isLeft()).toBe(false);
+    });
+  });
 });

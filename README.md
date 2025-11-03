@@ -16,8 +16,12 @@ Visit `http://localhost:8081`
 
 ## Controls
 
+### Desktop
 - **WASD** or **Arrow Keys**: Move
 - **Space**: Jump
+
+### Mobile
+- **Touch Controls**: On-screen buttons for left, right, and jump
 
 ## Development
 

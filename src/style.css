@@ -271,7 +271,7 @@ button:active {
   }
 }
 
-/* Portrait mode for narrower screens */
+/* Portrait mode for narrower screens (adjust button size for smaller displays) */
 @media (hover: none) and (pointer: coarse) and (orientation: portrait) and (max-width: 400px) {
   #touch-controls .touch-btn {
     width: 60px;

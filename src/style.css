@@ -265,23 +265,7 @@ button:active {
 
 /* Portrait mode optimizations for touch devices */
 @media (hover: none) and (pointer: coarse) and (orientation: portrait) {
-  #touch-controls {
-    display: flex;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-  }
-
-  #touch-controls .touch-btn {
-    width: 70px;
-    height: 70px;
-    font-size: 2rem;
-  }
-
-  .touch-controls-left {
-    gap: 15px;
-  }
-
+  /* Ensure audio controls are positioned higher to avoid overlap with touch controls */
   #audio-controls {
     bottom: 110px;
   }

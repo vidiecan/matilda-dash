@@ -18,10 +18,11 @@ body {
 #game-container {
   width: 100%;
   max-width: 1200px;
-  height: 100vh;
+  height: 100dvh;
   position: relative;
   background: #1a1a1a;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+  overflow-y: auto;
 }
 
 .screen {
@@ -259,6 +260,43 @@ button:active {
 
   #audio-controls {
     bottom: 100px;
+  }
+}
+
+/* Portrait mode optimizations for touch devices */
+@media (hover: none) and (pointer: coarse) and (orientation: portrait) {
+  #touch-controls {
+    display: flex;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+  }
+
+  #touch-controls .touch-btn {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
+
+  .touch-controls-left {
+    gap: 15px;
+  }
+
+  #audio-controls {
+    bottom: 110px;
+  }
+}
+
+/* Portrait mode for narrower screens */
+@media (hover: none) and (pointer: coarse) and (orientation: portrait) and (max-width: 400px) {
+  #touch-controls .touch-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+  }
+
+  .touch-controls-left {
+    gap: 12px;
   }
 }
 

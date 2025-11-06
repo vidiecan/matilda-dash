@@ -66,7 +66,7 @@ export class Game {
     }
 
     // Check fall off map
-    if (this.player.y > this.canvas.height) {
+    if (this.player.y > this.map.height + 100) {
       this.player.reset(
         this.map.startPos.x * this.map.blockSize,
         this.map.startPos.y * this.map.blockSize - 32

@@ -26,10 +26,9 @@ class App {
     this.gameCanvas = document.getElementById('game-canvas');
     this.editorCanvas = document.getElementById('editor-canvas');
 
-    this.gameCanvas.width = 800;
-    this.gameCanvas.height = 600;
-    this.editorCanvas.width = 800;
-    this.editorCanvas.height = 600;
+    // Adjust canvas size for mobile
+    this.updateCanvasSize();
+    window.addEventListener('resize', () => this.updateCanvasSize());
 
     // Create game and editor instances
     this.game = new Game(this.gameCanvas, this.assets);
@@ -138,6 +137,42 @@ class App {
 
   stopEditorLoop() {
     // Loop will stop naturally when screen changes
+  }
+
+  updateCanvasSize() {
+    const isMobile = window.innerWidth < 700;
+    
+    if (isMobile) {
+      // Mobile: use available space
+      const width = Math.min(window.innerWidth - 20, 600);
+      // Reserve space for HUD (60px) and touch controls (100px) = 160px total
+      const availableHeight = window.innerHeight - 160;
+      const height = Math.min(availableHeight, 600);
+      
+      this.gameCanvas.width = width;
+      this.gameCanvas.height = height;
+      this.editorCanvas.width = width;
+      this.editorCanvas.height = height;
+      
+      // Show touch controls
+      document.getElementById('touch-controls').style.display = 'flex';
+    } else {
+      // Desktop: full size
+      this.gameCanvas.width = 800;
+      this.gameCanvas.height = 600;
+      this.editorCanvas.width = 800;
+      this.editorCanvas.height = 600;
+      
+      // Hide touch controls on desktop unless it's a touch device
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      document.getElementById('touch-controls').style.display = isTouchDevice ? 'flex' : 'none';
+    }
+    
+    // Update game map if it exists
+    if (this.game && this.game.map) {
+      this.game.canvas = this.gameCanvas;
+      this.game.ctx = this.gameCanvas.getContext('2d');
+    }
   }
 }
 

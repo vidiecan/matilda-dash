@@ -3,6 +3,10 @@ export class AudioManager {
     this.music = null;
     this.musicEnabled = true;
     this.currentTrack = 'none';
+    this.tracks = {
+      music1: 'assets/sounds/music1.wav',
+      music2: 'assets/sounds/music2.wav',
+    };
   }
 
   playMusic(track) {
@@ -16,10 +20,16 @@ export class AudioManager {
       return;
     }
 
-    // For now, we don't have actual music files
-    // This is a placeholder for future implementation
-    this.currentTrack = track;
-    console.log(`Would play music: ${track}`);
+    if (this.tracks[track]) {
+      this.music = new Audio(this.tracks[track]);
+      this.music.loop = true;
+      this.music.volume = 0.3;
+      this.music.play().catch((err) => {
+        console.warn('Audio playback failed:', err);
+      });
+      this.currentTrack = track;
+      console.log(`Playing music: ${track}`);
+    }
   }
 
   toggleMusic() {

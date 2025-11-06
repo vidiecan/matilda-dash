@@ -96,16 +96,28 @@ export class Game {
     if (this.won) {
       this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
       this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-      this.ctx.fillStyle = '#FFD700';
-      this.ctx.font = 'bold 48px Arial';
-      this.ctx.textAlign = 'center';
-      this.ctx.fillText('YOU WIN!', this.canvas.width / 2, this.canvas.height / 2);
+
+      const victoryImg = this.assets.images.victory;
+      if (victoryImg) {
+        const imgWidth = Math.min(400, this.canvas.width * 0.8);
+        const imgHeight = (victoryImg.height / victoryImg.width) * imgWidth;
+        const imgX = (this.canvas.width - imgWidth) / 2;
+        const imgY = (this.canvas.height - imgHeight) / 2 - 30;
+        this.ctx.drawImage(victoryImg, imgX, imgY, imgWidth, imgHeight);
+      } else {
+        this.ctx.fillStyle = '#FFD700';
+        this.ctx.font = 'bold 48px Arial';
+        this.ctx.textAlign = 'center';
+        this.ctx.fillText('YOU WIN!', this.canvas.width / 2, this.canvas.height / 2);
+      }
+
       this.ctx.font = '24px Arial';
       this.ctx.fillStyle = '#FFFFFF';
+      this.ctx.textAlign = 'center';
       this.ctx.fillText(
         'Press Menu to continue',
         this.canvas.width / 2,
-        this.canvas.height / 2 + 50
+        this.canvas.height / 2 + 80
       );
     }
   }

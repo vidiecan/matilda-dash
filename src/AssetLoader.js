@@ -51,7 +51,8 @@ export class AssetLoader {
       this.loadImage('block_grass', 'assets/images/block_grass.png'),
       this.loadImage('block_dirt', 'assets/images/block_dirt.png'),
       this.loadImage('block_stone', 'assets/images/block_stone.png'),
-      this.loadImage('background', 'assets/backgrounds/sky.png'),
+      this.loadImage('background', 'assets/backgrounds/sky2.png'),
+      this.loadImage('victory', 'assets/images/victory.png'),
     ];
 
     await Promise.all(promises);

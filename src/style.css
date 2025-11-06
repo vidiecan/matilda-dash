@@ -42,7 +42,7 @@ body {
 }
 
 #menu {
-  background: url('/assets/menu/front.png') center/cover;
+  background: url('../assets/menu/front.png') center/cover;
 }
 
 #menu h1 {

@@ -3,6 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - '**/*.md'
+      - '.agents/**'
   workflow_dispatch:
 
 permissions:

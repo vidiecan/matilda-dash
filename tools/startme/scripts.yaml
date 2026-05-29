@@ -1,0 +1,75 @@
+title: Matilda Dash launcher
+discovery:
+  include:
+    - scripts/*.bat
+    - scripts/*.py
+  exclude:
+    - scripts/startme.bat
+    - tools/startme/**
+    - tools/**/__pycache__/**
+    - node_modules/**
+    - __temp/**
+    - tests/e2e/output/**
+defaults:
+  wait_after_run: true
+  confirm_before_run: false
+  show_discovered: true
+  color: true
+  progress: true
+sections:
+  - id: assets
+    title: Assets - rebuild sprites / audio
+  - id: dev
+    title: Dev - local server
+  - id: discovered
+    title: Discovered scripts needing metadata
+scripts:
+  # -- ASSETS --------------------------------------------------------------
+  - id: generate-assets
+    section: assets
+    path: scripts/generate_assets.py
+    label: Assets - generate placeholder sprites + block tiles
+    description: |
+      Writes block_dirt.png, block_grass.png, block_stone.png and the
+      badger-placeholder Matilda sprites into assets/images/. Useful when
+      starting a fresh asset pass or when the placeholder set has been
+      lost. Idempotent - overwrites existing files.
+    when: First-time setup, or after deleting assets/images/.
+    prerequisites:
+      - Python on PATH
+      - Pillow installed (pip install Pillow)
+    inputs: []
+    outputs:
+      - assets/images/block_*.png
+      - assets/images/matilda_*.png placeholders
+  - id: generate-audio
+    section: assets
+    path: scripts/generate_audio.py
+    label: Audio - generate placeholder music + SFX
+    description: |
+      Synthesizes simple tone sequences as WAV placeholders into
+      assets/sounds/. Use until real tracks are dropped in.
+    when: First-time setup, or after deleting assets/sounds/.
+    prerequisites:
+      - Python on PATH
+    inputs: []
+    outputs:
+      - assets/sounds/*.wav
+
+  # -- DEV -----------------------------------------------------------------
+  - id: docker-start
+    section: dev
+    path: scripts/start.bat
+    label: Dev - Docker nginx on http://localhost:8081
+    description: |
+      Runs the static game out of an alpine-nginx container bound to
+      localhost:8081. Mounts the repo read-only. Press Ctrl+C to stop the
+      container. Equivalent to `npm run dev` when you do not have node
+      installed but do have Docker.
+    when: Quick local smoke without installing node, or when sharing the
+      port over the LAN.
+    prerequisites:
+      - Docker Desktop running
+    inputs: []
+    outputs:
+      - http://localhost:8081 serving the game

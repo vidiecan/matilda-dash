@@ -121,10 +121,14 @@ export class Player {
       }
     }
 
-    // Floor probe: stay grounded when standing on a block edge.
+    // Floor probe: stay grounded when standing on a block edge. Snap to the
+    // tile top and clear vertical speed so a sub-pixel penetration the main
+    // sweep missed doesn't keep applying stale downward velocity next tick.
     const probeRow = Math.floor((this.y + this.height) / blockSize);
     for (let col = left; col <= right; col++) {
       if (map.isSolid(col, probeRow)) {
+        this.y = probeRow * blockSize - this.height;
+        if (this.velocityY > 0) this.velocityY = 0;
         this.onGround = true;
         break;
       }

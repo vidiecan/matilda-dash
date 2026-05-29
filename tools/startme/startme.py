@@ -262,9 +262,24 @@ def build_menu_items(
             if path not in configured_by_path:
                 items.append(_discovered_item(path))
     section_ids = {section.id for section in config.sections}
-    if any(item.section not in section_ids for item in items):
-        config_sections = (*config.sections, Section(id="discovered",
-                           title="Discovered scripts"))
+    # Surface *every* unknown section, not just "discovered". Without this an
+    # author misspelling section: assetss (vs assets) would silently drop those
+    # entries from the UI — items would be grouped under "assetss" but no
+    # matching section header would render. Each unknown id gets a synthesized
+    # header so it's at least selectable while the typo gets noticed.
+    unknown_ids = [item.section for item in items if item.section not in section_ids]
+    if unknown_ids:
+        seen: set[str] = set()
+        extras: list[Section] = []
+        for section_id in unknown_ids:
+            if section_id in seen:
+                continue
+            seen.add(section_id)
+            title = "Discovered scripts" if section_id == "discovered" else (
+                f"Unknown section: {section_id}"
+            )
+            extras.append(Section(id=section_id, title=title))
+        config_sections = (*config.sections, *extras)
     else:
         config_sections = config.sections
     order = {section.id: index for index, section in enumerate(config_sections)}

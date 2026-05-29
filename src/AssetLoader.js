@@ -45,7 +45,6 @@ export class AssetLoader {
   async loadAll() {
     const promises = [
       this.loadImage('matilda_right', 'assets/images/matilda_right.png'),
-      this.loadImage('matilda_left', 'assets/images/matilda_left.png'),
       this.loadImage('matilda_idle', 'assets/images/matilda_idle.png'),
       this.loadImage('matilda_jump', 'assets/images/matilda_jump.png'),
       this.loadImage('block_grass', 'assets/images/block_grass.png'),
